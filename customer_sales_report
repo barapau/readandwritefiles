@@ -1,0 +1,85 @@
+import csv
+
+infile = open('sales.csv', 'r', newline = '')
+outfile = open('salesreport.csv', 'a', newline = '')
+reader = csv.reader(infile, delimiter =  ',')
+writer = csv.writer(outfile, delimiter = ',')
+fields = next(reader)
+
+total0 = 0 
+total1 = 0
+total2 = 0 
+total3 = 0 
+total4 = 0 
+total5 = 0 
+total6 = 0 
+total7 = 0 
+total8 = 0 
+total9 = 0 
+total10 = 0 
+total11 = 0 
+
+for row in reader:
+    customer_id = int(row[0])   
+    subtotal = float(row[3])
+    tax = float(row[4])
+    freight = float(row[5])
+
+    if customer_id == 250:
+        total0 += subtotal
+        total0 += tax
+        total0 += freight
+    if customer_id == 251:
+        total1 += subtotal 
+        total1 += tax
+        total1 += freight
+    if customer_id == 252:
+        total2 += subtotal
+        total2 += tax
+        total2 += freight
+    if customer_id == 253:
+        total3 += subtotal
+        total3 += tax
+        total3 += freight
+    if customer_id == 254:
+        total4 += subtotal
+        total4 += tax
+        total4 += freight
+    if customer_id == 255:
+        total5 += subtotal
+        total5 += tax
+        total5 += freight
+    if customer_id == 256:
+        total6 += subtotal
+        total6 += tax
+        total6 += freight
+    if customer_id == 257:
+        total7 += subtotal
+        total7 += tax
+        total7 += freight
+    if customer_id == 258:
+        total8 += subtotal
+        total8 += tax
+        total8 += freight
+    if customer_id == 259:
+        total9 += subtotal
+        total9 += tax
+        total9 += freight
+    if customer_id == 260:
+        total10 += subtotal
+        total10 += tax
+        total10 += freight
+    if customer_id == 261:
+        total11 += subtotal
+        total11 += tax
+        total11 += freight
+    
+sales_report = [['CustomerID', 'Total'],['250', total0],['251', total1],['252', total2],['253', total3],['254', total4],
+                ['255', total5],['256', total6], ['257', total7], ['258', total8],['259', total9],
+                ['260', total10], ['261', total11]]
+
+for row in sales_report:
+    writer.writerow(row)
+
+infile.close()
+outfile.close()
